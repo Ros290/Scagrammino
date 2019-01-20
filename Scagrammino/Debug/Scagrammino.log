@@ -1,3 +1,29 @@
-﻿  pch.cpp
+﻿  character.cpp
+  fight_manager.cpp
+c:\users\windows 7\source\repos\scagrammino\scagrammino\fight_manager.h(7): error C2276: '*': operazione non valida in espressione di funzione membro associata
+c:\users\windows 7\source\repos\scagrammino\scagrammino\fight_manager.cpp(14): error C3867: 'character::get_name': sintassi non standard; usare '&' per creare un puntatore al membro
+c:\users\windows 7\source\repos\scagrammino\scagrammino\fight_manager.cpp(14): error C2664: 'std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<_Ty>>> std::_Tree<std::_Tmap_traits<_Kty,character,_Pr,_Alloc,false>>::insert(std::_Tree_const_iterator<std::_Tree_val<std::_Tree_simple_types<_Ty>>>,const std::pair<const _Kty,character> &)': impossibile convertire l'argomento 1 da 'initializer list' a 'std::pair<const _Kty,_Ty> &&'
+          with
+          [
+              _Ty=std::pair<const std::string,character>,
+              _Kty=std::string,
+              _Pr=comparator_characters,
+              _Alloc=std::allocator<std::pair<const std::string,character>>
+          ]
+          and
+          [
+              _Kty=std::string,
+              _Ty=character
+          ]
+  c:\users\windows 7\source\repos\scagrammino\scagrammino\fight_manager.cpp(14): note: Motivo: impossibile convertire da 'initializer list' a 'std::pair<const _Kty,_Ty>'
+          with
+          [
+              _Kty=std::string,
+              _Ty=character
+          ]
+  c:\users\windows 7\source\repos\scagrammino\scagrammino\fight_manager.cpp(14): note: Nessun costruttore ha potuto accettare il tipo di origine o la risoluzione dell'overload del costruttore è risultata ambigua
+c:\users\windows 7\source\repos\scagrammino\scagrammino\fight_manager.cpp(20): error C3867: 'character::get_name': sintassi non standard; usare '&' per creare un puntatore al membro
   Scagrammino.cpp
-  Scagrammino.vcxproj -> C:\Users\Windows 7\source\repos\Scagrammino\Debug\Scagrammino.exe
+c:\users\windows 7\source\repos\scagrammino\scagrammino\fight_manager.h(7): error C2276: '*': operazione non valida in espressione di funzione membro associata
+  Generazione del codice in corso...
+c:\users\windows 7\source\repos\scagrammino\scagrammino\character.cpp(44): warning C4715: 'character::get_weapon_from_armory': non tutti i percorsi di controllo restituiscono un valore

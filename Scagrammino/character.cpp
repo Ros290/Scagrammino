@@ -23,7 +23,7 @@ unsigned short int character::get_initiative () {
 }
 
 void character::add_weapon_to_armory (weapon weapon) {
-	armory.insert ({ weapon.get_weapon_name, weapon });
+	armory.insert ({ weapon.get_weapon_name (), weapon });
 }
 
 void character::remove_weapon_from_armory (std::string weapon_Name) {
@@ -38,8 +38,8 @@ std::vector<std::string> character::get_vector_of_weapons () {
 }
 
 weapon character::get_weapon_from_armory (std::string weapon_Name) {
-	std::unordered_map<std::string, weapon>::const_iterator it = armory.find (weapon_Name);
-	if (it != armory.end)
+	auto it = armory.find (weapon_Name);
+	if (it != armory.end ())
 		return it->second;
 }
 
@@ -52,9 +52,9 @@ void character::set_secondary_weapon (std::string weapon_Name) {
 }
 
 std::string character::get_primary_weapon (std::string weapon_Name) {
-	return selected_Primary_Weapon->get_weapon_name;
+	return (*selected_Primary_Weapon).get_weapon_name();
 }
 
 std::string character::get_secondary_weapon (std::string weapon_Name) {
-	return selected_Secondary_Weapon->get_weapon_name;
+	return (*selected_Secondary_Weapon).get_weapon_name();
 }

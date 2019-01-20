@@ -3,7 +3,7 @@
 
 #include "pch.h"
 #include <iostream>
-#include <map>
+#include "fight_manager.h"
 #include "character.h"
 #define d4 dice(4)
 #define d6 dice(6)
@@ -12,29 +12,18 @@
 #define d12 dice(12)
 #define d20 dice(20)
 
-
-//TODO: creare la classe apposita per gestire i pg
-
 int main () {
-	//std::cout << "Hello World!\n";
 	std::string name;
 	unsigned short int initiative;
-	struct comparator_characters {
-		bool operator()(const character& c1, 
-						const character& c2) const {
-			return c1.get_initiative < c2.get_initiative;
-		}
-	};
-	std::map <std::string, 
-		character, 
-		comparator_characters> map_Characters;
 	unsigned short int choice;
+	fight_manager fm ("Esempio Scontro");
 	while (choice != 0) {
 		std::cout << "Insert command:\n\n";
-		std::cout << "1 : create Character\n";
-		std::cout << "2 : remove Character\n";
-		std::cout << "3 : add Weapon to Character";
-		std::cout << "4 : roll attack for Character";
+		std::cout << "1 : create Character;\n";
+		std::cout << "2 : remove Character;\n";
+		std::cout << "3 : add Weapon to Character;\n";
+		std::cout << "4 : roll attack for Character;\n";
+		std::cout << "0 : exit.\n";
 
 		std::cin >> choice;
 		switch (choice) {
@@ -43,25 +32,21 @@ int main () {
 			std::cout << "Insert character name and Initiative value. Then press Enter:\n";
 			std::cin >> name;
 			std::cin >> initiative;
-			map_Characters.insert ({ name, 
-								   character (name, initiative) });
+			fm.add_character (character ( name, initiative ));
 			break;
 
 		case 2:
+			std::vector<std::string> characters_Vector;
+			characters_Vector = fm.get_vector_of_characters_name();
 			std::cout << "Characters:\n\n";
-
-			std::cout << "Insert character Name to Erase. Then press Enter:\n";
+			for (const auto& elem_Vector : characters_Vector)
+				std::cout << elem_Vector << ";\n";
+			std::cout << "\nInsert character Name to Erase. Then press Enter:\n";
 			std::cin >> name;
+			fm.remove_character (name);
 			break;
 		}
 	}
-
-	std::string show_characters () {
-		std::string result = "";
-		for (auto const& element : map_Characters)
-			result += element.second.get_name;
-		return result;
-	};
 }
 
 // Per eseguire il programma: CTRL+F5 oppure Debug > Avvia senza eseguire debug

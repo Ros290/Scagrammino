@@ -2,11 +2,14 @@
 #include "weapon.h"
 
 
-weapon::weapon (std::string name, weapon_type type, unsigned short int modifier, dice dice_Damage) {
+weapon::weapon (std::string name, 
+				weapon_type type, 
+				unsigned short int modifier, 
+				dice dice_Damage) {
 	this->name.assign (name);
 	this->modifier = modifier;
 	this->type = type;
-	this->dice_Damage = dice_Damage;
+	this->dice_Damage = &dice_Damage;
 }
 
 
@@ -30,5 +33,5 @@ unsigned short int weapon::get_weapon_modifier () {
 }
 
 dice weapon::get_dice_damage () {
-	return dice_Damage;
+	return *dice_Damage;
 }

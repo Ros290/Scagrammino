@@ -9,8 +9,8 @@ private:
 	std::string name;
 	std::unordered_map<std::string, weapon> armory;
 	unsigned short int initiative;
-	weapon * selected_Primary_Weapon;
-	weapon * selected_Secondary_Weapon;
+	weapon* selected_Primary_Weapon;
+	weapon* selected_Secondary_Weapon;
 
 public:
 	/**

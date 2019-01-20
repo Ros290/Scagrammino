@@ -7,7 +7,7 @@ class weapon {
 private:
 	std::string name;
 	unsigned short int modifier;
-	dice dice_Damage;
+	dice* dice_Damage;
 	weapon_type type;
 
 public:
@@ -18,7 +18,10 @@ public:
 	@param modifier valore da sommare assieme al risultato dell'attacco e danno
 	@param dice_Damage il dado utilizzato per calcolare il danno
 	*/
-	weapon (std::string name, weapon_type type, unsigned short int modifier, dice dice_Damage);
+	weapon (std::string name, 
+			weapon_type type, 
+			unsigned short int modifier, 
+			dice dice_Damage);
 	~weapon ();
 	/**
 	Ritorna il nome dell'arma
